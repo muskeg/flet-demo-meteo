@@ -5,9 +5,7 @@ application web simple qui affiche les prévisions météorologiques d'Environne
 Canada pour une station météo donnée.
 """
 
-import asyncio
 import flet as ft
-from env_canada import ECWeather
 import meteo.conditions as conditions
 import meteo.previsions as previsions
 
@@ -19,13 +17,9 @@ def main(page: ft.Page):
     page.window.height = 300
     page.window.resizable = False
     page.add(ft.SafeArea(ft.Text("Hello, Flet!")))
-    test_meteo = ECWeather(coordinates=(45.50884, -73.58781), language="french")
-    asyncio.run(test_meteo.update())
-    weather = test_meteo.hourly_forecasts
-    # weather = test_meteo.hourly_forecasts[0]
-    print(weather[0]['condition'])
-    print(weather[0]['icon_code'])
-    print(test_meteo.station_id)
+    page.add(ft.Text("Hello, Flet!"))
+    meteo_montreal = conditions.Conditions((45.50884, -73.58781))
+    print(meteo_montreal.temp_actuelle)
     # print(test_meteo.hourly_forecasts)
 
 
