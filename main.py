@@ -82,17 +82,6 @@ class TemperatureVille(ft.Container):
                                     width = 135,
                                     margin = ft.margin.only(left = -13),
                                 ),
-
-                                # text = "rafraichir", 
-                                # on_click = self.clic_bouton,
-                                # icon = ft.Icon(
-                                #     ft.icons.REFRESH,
-                                # ),
-                                # style = ft.ButtonStyle(
-                                #     text_style = ft.TextStyle(
-                                #         size = 20,
-                                #     ),
-                                # ),
                             ),
                         ],
                     ),

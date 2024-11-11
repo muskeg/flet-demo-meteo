@@ -2,6 +2,8 @@
 
 Cette application météo est un exemple d'utilisation du framework Flet pour créer des applications (web et natives) rapidement en Python.
 
+Pour en apprendre plus sur Flet, consultez la documentation (https://flet.dev/docs/) qui contient plusieurs exemples d'utilisations des différentes composantes d'interface
+
 
 ## Exécution
 
