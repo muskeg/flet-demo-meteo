@@ -6,7 +6,7 @@ Cette application météo est un exemple d'utilisation du framework Flet pour cr
 ## Exécution
 
 ### Prérequis
-* Python 3
+* [Python 3](https://www.python.org/downloads/)
 * (optionel) [git](https://git-scm.com/downloads) 
 * (optionel) module de [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
 * Les modules dans le fichier requirements.txt
