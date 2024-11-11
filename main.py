@@ -5,136 +5,133 @@ application web simple qui affiche les prévisions météorologiques d'Environne
 Canada pour une station météo donnée.
 """
 
-from datetime import datetime
-from dateutil import tz
 import flet as ft
-import meteo.conditions as conditions
-import meteo.previsions as previsions
-import meteo.icones as icones
-
-
-class VueConditionsActuelles(ft.Container):
-    def __init__(self, coord, nom_ville):
+from meteo.vues import VueConditionsActuelles, VuePrevisions
+class TemperatureVille(ft.Container):
+    """Classe de présentation principale"""
+    def __init__(self):
         super().__init__()
-        self._ville = conditions.Conditions(coord)
-        self._nom_ville = nom_ville
-        self._utczone = tz.tzutc()
-        self._localzone = tz.tzlocal()
-        self._naive_utc = self._ville.temps_observation
-        self._heure_maj = self._naive_utc.astimezone(self._localzone).strftime('%Y-%m-%d %H:%M')
-        print(icones.Icones['ICONE_' + self._ville.icone_actuelle].value)
-        self.content = ft.Container(
-            content = ft.Column(
-                controls = [
-                    ft.Row(
-                        controls = [
-                            ft.Text(
-                                 "Conditions actuelles",
-                                 size = 30,
-                            ),
-                        ],
-                        alignment=ft.MainAxisAlignment.CENTER,
-                    ),
-                    ft.Row(
-                        controls = [
-                            ft.Container(
-                                content=ft.Text(
-                                    f"{self._ville.condition_actuelle}",
-                                    size = 14,
-                                ),
-                                padding=ft.padding.only(top=15, bottom=0),
-                                margin=ft.margin.only(bottom=-15),
-                            )
-                        ],
-                        alignment=ft.MainAxisAlignment.CENTER,
-                    ),
-                    ft.Row(
-                        controls = [
-                            ft.Container(
-                                ft.Image(
-                                    src = icones.Icones['ICONE_' + self._ville.icone_actuelle].value,
-                                    height = 100,
-                                    fit = ft.ImageFit.CONTAIN,
-                                ),
-                            ),
-                            ft.Text(
-                                f"{self._ville.temp_actuelle}°C",
-                                size = 60,
-                            ),
-                        ],
-                        alignment=ft.MainAxisAlignment.CENTER,
-                    ),
-                    ft.Row(
-                        controls = [
-                            ft.Container(
-                                content = ft.Icon(
-                                    ft.icons.COMPRESS,
-                                    size = 12,
-                                    tooltip = "Pression"
-                                ),
-                                margin=ft.margin.only(right=-5),
-                            ),
-                            ft.Text(
-                                f"{self._ville.pression_actuelle} kPa",
-                                size = 12,
-                            ),
-                            ft.Container(
-                                content = ft.Icon(
-                                    ft.icons.AIR,
-                                    size = 12,
-                                    tooltip = "Vent"
-                                ),
-                                margin=ft.margin.only(right=-5, left=10),
-                            ),
-                            ft.Text(
-                                f"{self._ville.vent_actuel} km/h",
-                                size = 12,
-                            ),
-                            ft.Container(
-                                content = ft.Icon(
-                                    ft.icons.WATER_DROP,
-                                    size = 12,
-                                    tooltip = "Humidité"
-                                ),
-                                margin=ft.margin.only(right=-5, left=10),
-                            ),
-                            ft.Text(
-                                f"{self._ville.humidite_actuelle}%",
-                                size = 12,
-                            ),
-                        ],
-                        alignment=ft.MainAxisAlignment.CENTER,
-                    ),
-                    ft.Row(
-                        controls = [
-                            ft.Text(
-                                f"Observé à {self._nom_ville} / {self._heure_maj}",
-                                size = 12,
-                            ),
-                        ],
-                        alignment=ft.MainAxisAlignment.CENTER,
-                    ),
+        self._nom_ville = "Montréal"
+        self._coord_ville = (45.50884, -73.58781)
+        self.affiche_layout()
 
-                ],
-            ),
+    def affiche_layout(self):
+        """Fonction qui affiche le layout."""
+        self._dropdown_ville = ft.Dropdown(
+            width=270,
+            on_change=self.drop_change,
+            label = "Ville",
+            options=[
+                ft.dropdown.Option(text="Montréal"),
+                ft.dropdown.Option(text="Québec"),
+                ft.dropdown.Option(text="Iqaluit"),
+            ],
+        )
+        self._dropdown_ville.value = self._nom_ville
+        self._conditions_ville = VueConditionsActuelles(self._coord_ville, self._nom_ville)
+        self._prevision_ville = VuePrevisions(self._coord_ville, self._nom_ville)
+        self.content = ft.Column(
+            controls=[
+                ft.Row(
+                    controls=[
+                        ft.Text(
+                            f"Météo {self._nom_ville}",
+                            size=40,
+                        ),
+                    ],
+                    alignment=ft.MainAxisAlignment.CENTER,
+                ),
+                ft.Row(
+                    controls = [
+                        self._conditions_ville,
+                    ],
+                    alignment = ft.MainAxisAlignment.CENTER,
+                ),
+                ft.Row(
+                    controls = [
+                        self._prevision_ville,
+                    ],
+                    alignment = ft.MainAxisAlignment.CENTER,
+                ),
+                ft.Row(
+                    controls = [
+                        self._dropdown_ville
+                    ],
+                ),
+                ft.Container(
+                margin = ft.margin.only(top = -20),
+                content = ft.Row(
+                        controls = [
+                            ft.ElevatedButton(
+                                content = ft.Container(
+                                    content = ft.Row(
+                                        controls = [
+                                            ft.Icon(
+                                                ft.icons.REFRESH,
+                                                size = 22,
+                                            ),
+                                            ft.Text(
+                                                "Rafraichir",
+                                                size = 18,
+                                            ),
+                                        ],
+                                        alignment = ft.MainAxisAlignment.CENTER,
+                                        expand = True,
+                                    ),
+                                    height = 45,
+                                    width = 135,
+                                    margin = ft.margin.only(left = -13),
+                                ),
+
+                                # text = "rafraichir", 
+                                # on_click = self.clic_bouton,
+                                # icon = ft.Icon(
+                                #     ft.icons.REFRESH,
+                                # ),
+                                # style = ft.ButtonStyle(
+                                #     text_style = ft.TextStyle(
+                                #         size = 20,
+                                #     ),
+                                # ),
+                            ),
+                        ],
+                    ),
+                ),
+            ],
+            spacing = 40,
         )
 
+    def drop_change(self, event):
+        """Fonction qui gère le changement de la ville sélectionnée dans le dropdown."""
+        if event.data == "Montréal":
+            self._nom_ville = "Montréal"
+            self._coord_ville = (45.50884, -73.58781)
+        elif event.data == "Québec":
+            self._nom_ville = "Québec"
+            self._coord_ville = (46.8131, -71.2075)
+        elif event.data == "Iqaluit":
+            self._nom_ville = "Iqaluit"
+            self._coord_ville = (63.74944, -68.52167)
+        else:
+            pass
+        self.affiche_layout()
+        self.update()
+
+    def clic_bouton(self, _):
+        """Fonction qui gère le clic sur le bouton de rafraichissement."""
+        self.affiche_layout()
+        self.update()
+
 def main(page: ft.Page):
-    print(list(icones.Icones))
-    print(icones.Icones.ICONE_00.value)
-    print(icones.Icones.ICONE_00.name)
-    print(icones.Icones["ICONE_00"].value)
+    """Fonction d'orchestration de l'application météo."""
+    page.theme_mode = "dark"
     page.title = "Météo"
     page.padding = ft.padding.all(40)
-    page.window.width = 800
+    page.window.width = 500
     page.window.height = 800
     page.window.resizable = False
-    montreal = (45.50884, -73.58781)
-    conditions_montreal = VueConditionsActuelles(montreal, "Montréal")
-    page.add(conditions_montreal)
-
-    # print(test_meteo.hourly_forecasts)
-
+    interface = TemperatureVille()
+    page.add(interface)
 
 ft.app(target=main, assets_dir="assets")
 

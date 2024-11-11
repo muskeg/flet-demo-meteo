@@ -1,0 +1,110 @@
+[
+  {
+    "period": "ce soir et cette nuit",
+    "text_summary": "Dégagé. Minimum plus 1.",
+    "icon_code": "30",
+    "temperature": 1,
+    "temperature_class": "low",
+    "precip_probability": 0,
+    "timestamp": "2024-11-09T20:45:00Z"
+  },
+  {
+    "period": "dimanche",
+    "text_summary": "Ennuagement le matin. Maximum 9. Indice UV de 2 ou bas.",
+    "icon_code": "03",
+    "temperature": 9,
+    "temperature_class": "high",
+    "precip_probability": 0,
+    "timestamp": "2024-11-10T20:45:00Z"
+  },
+  {
+    "period": "dimanche soir et nuit",
+    "text_summary": "Nuageux. Pluie débutant tard en soirée. Vents devenant du sud-est à 20 km/h au cours de la nuit. Minimum 6.",
+    "icon_code": "12",
+    "temperature": 6,
+    "temperature_class": "low",
+    "precip_probability": 0,
+    "timestamp": "2024-11-10T20:45:00Z"
+  },
+  {
+    "period": "lundi",
+    "text_summary": "Averses. Maximum 13.",
+    "icon_code": "12",
+    "temperature": 13,
+    "temperature_class": "high",
+    "precip_probability": 0,
+    "timestamp": "2024-11-11T20:45:00Z"
+  },
+  {
+    "period": "lundi soir et nuit",
+    "text_summary": "Pluie intermittente. Minimum plus 3.",
+    "icon_code": "12",
+    "temperature": 3,
+    "temperature_class": "low",
+    "precip_probability": 0,
+    "timestamp": "2024-11-11T20:45:00Z"
+  },
+  {
+    "period": "mardi",
+    "text_summary": "Dégagement. Maximum 6.",
+    "icon_code": "02",
+    "temperature": 6,
+    "temperature_class": "high",
+    "precip_probability": 0,
+    "timestamp": "2024-11-12T20:45:00Z"
+  },
+  {
+    "period": "mardi soir et nuit",
+    "text_summary": "Dégagé. Minimum moins 6.",
+    "icon_code": "30",
+    "temperature": -6,
+    "temperature_class": "low",
+    "precip_probability": 0,
+    "timestamp": "2024-11-12T20:45:00Z"
+  },
+  {
+    "period": "mercredi",
+    "text_summary": "Ensoleillé. Maximum plus 2.",
+    "icon_code": "00",
+    "temperature": 2,
+    "temperature_class": "high",
+    "precip_probability": 0,
+    "timestamp": "2024-11-13T20:45:00Z"
+  },
+  {
+    "period": "mercredi soir et nuit",
+    "text_summary": "Dégagé. Minimum moins 6.",
+    "icon_code": "30",
+    "temperature": -6,
+    "temperature_class": "low",
+    "precip_probability": 0,
+    "timestamp": "2024-11-13T20:45:00Z"
+  },
+  {
+    "period": "jeudi",
+    "text_summary": "Alternance de soleil et de nuages. Maximum plus 3.",
+    "icon_code": "02",
+    "temperature": 3,
+    "temperature_class": "high",
+    "precip_probability": 0,
+    "timestamp": "2024-11-14T20:45:00Z"
+  },
+  {
+    "period": "jeudi soir et nuit",
+    "text_summary": "Passages nuageux. Minimum moins 1.",
+    "icon_code": "32",
+    "temperature": -1,
+    "temperature_class": "low",
+    "precip_probability": 0,
+    "timestamp": "2024-11-14T20:45:00Z"
+  },
+  {
+    "period": "vendredi",
+    "text_summary": "Alternance de soleil et de nuages. Maximum 6.",
+    "icon_code": "02",
+    "temperature": 6,
+    "temperature_class": "high",
+    "precip_probability": 0,
+    "timestamp": "2024-11-15T20:45:00Z"
+  }
+]
