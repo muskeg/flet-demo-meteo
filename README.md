@@ -29,6 +29,11 @@ Si tout se passe comme prévu, l'application se lance:
 
 ## Code
 
+### Diagrammes
+Consultez les diagrammes de classes et de séquences ici:
+* classes: [diagrammes/classes.md](https://github.com/muskeg/flet-demo-meteo/blob/main/diagrammes/classes.md)
+* séquences: [diagrammes/sequences.md](https://github.com/muskeg/flet-demo-meteo/blob/main/diagrammes/sequences.md)
+
 ### main.py
 
 Ce fichier est le point d'entrée principal de l'application. Il utilise le framework Flet pour créer une application web simple qui affiche les prévisions météorologiques d'Environnement Canada pour une station météo donnée. La classe principale `TemperatureVille` gère l'affichage du layout et les interactions utilisateur, comme le changement de ville et le rafraîchissement des données météorologiques.
