@@ -115,12 +115,39 @@ def main(page: ft.Page):
     """Fonction d'orchestration de l'application météo."""
     page.theme_mode = "dark"
     page.title = "Météo"
-    page.padding = ft.padding.all(40)
+    page.padding = ft.padding.all(0)
     page.window.width = 500
     page.window.height = 800
     page.window.resizable = False
+    page.window.maximizable = False
+    page.window.title_bar_hidden = True
     interface = TemperatureVille()
-    page.add(interface)
+    page.add(
+        ft.Row(
+            [
+                    ft.WindowDragArea(
+                        ft.Container(
+                            ft.Text("Météo Flet"),
+                            padding=10
+                        ),
+                        expand=True,
+                        maximizable = False,
+                    ),
+                    ft.IconButton(
+                        ft.icons.CLOSE,
+                        padding = 10,
+                        on_click=lambda _: page.window.close()
+                    )
+            ],
+        ),
+    )
+    page.add(
+        ft.Container(
+            content = interface,
+            padding = ft.padding.all(40),
+        ),
+        interface
+    )
 
 ft.app(target=main, assets_dir="assets")
 
