@@ -11,6 +11,7 @@ class Icones(Enum):
     ICONE_01 = "assets/icones/cloudy-1-day.svg"
     ICONE_02 = "assets/icones/cloudy-2-day.svg"
     ICONE_03 = "assets/icones/cloudy-3-day.svg"
+    ICONE_05 = "assets/icones/rainy-1-night.svg"
     ICONE_06 = "assets/icones/rainy-1-day.svg"
     ICONE_07 = "assets/icones/rain-and-snow-mix.svg"
     ICONE_08 = "assets/icones/snowy-1-day.svg"
