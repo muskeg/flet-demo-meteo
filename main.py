@@ -146,7 +146,6 @@ def main(page: ft.Page):
             content = interface,
             padding = ft.padding.all(40),
         ),
-        interface
     )
 
 ft.app(target=main, assets_dir="assets")
