@@ -56,7 +56,7 @@ class Previsions:
                 temperature_low = min(temps)
             else:
                 temperature_high = temps[0]
-                temperature_low = None
+                temperature_low = temps[0]
             entry['temperature_high'] = temperature_high
             entry['temperature_low'] = temperature_low
             del entry['temperatures']
