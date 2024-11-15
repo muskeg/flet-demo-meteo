@@ -148,7 +148,5 @@ def main(page: ft.Page):
         ),
     )
 
-ft.app(target=main, assets_dir="assets")
-
 if __name__ == "__main__":
-    main(page = ft.Page)
+    ft.app(target=main, assets_dir="assets")
