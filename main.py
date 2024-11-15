@@ -36,7 +36,7 @@ class TemperatureVille(ft.Container):
                     controls=[
                         ft.Text(
                             f"Météo {self._nom_ville}",
-                            size=40,
+                            size=30,
                         ),
                     ],
                     alignment=ft.MainAxisAlignment.CENTER,
@@ -115,9 +115,9 @@ def main(page: ft.Page):
     """Fonction d'orchestration de l'application météo."""
     page.theme_mode = "dark"
     page.title = "Météo"
-    page.padding = ft.padding.all(0)
-    page.window.width = 500
-    page.window.height = 800
+    page.padding = ft.padding.only(top=10)
+    page.window.width = 475
+    page.window.height = 810
     page.window.resizable = False
     page.window.maximizable = False
     page.window.title_bar_hidden = True
@@ -144,7 +144,7 @@ def main(page: ft.Page):
     page.add(
         ft.Container(
             content = interface,
-            padding = ft.padding.all(40),
+            padding = ft.padding.symmetric(vertical = 30, horizontal = 33),
         ),
     )
 
