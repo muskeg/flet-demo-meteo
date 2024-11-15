@@ -35,6 +35,7 @@ class Previsions:
     def __previsions_par_dates(self):
         """Prévisions par dates"""
         self.maj()
+        temp_actuelle = self._api.conditions['temperature']['value']
         grouped_data_by_day = OrderedDict()
         for entry in self.previsions_jour:
             day = entry['timestamp'].date()
@@ -54,9 +55,12 @@ class Previsions:
             if len(temps) == 2:
                 temperature_high = max(temps)
                 temperature_low = min(temps)
+            elif temp_actuelle > temps[0]:
+                temperature_high = temp_actuelle
+                temperature_low = temps[0]
             else:
                 temperature_high = temps[0]
-                temperature_low = temps[0]
+                temperature_low = temp_actuelle
             entry['temperature_high'] = temperature_high
             entry['temperature_low'] = temperature_low
             del entry['temperatures']
