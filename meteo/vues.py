@@ -4,12 +4,13 @@ Ce module contient les classes de vues pour l'application météo. Ces classes
 sont utilisées pour afficher les conditions actuelles et les prévisions
 météorologiques.
 """
+# pylint: disable=import-error, too-many-instance-attributes
+# il est acceptable pour des classes d'interface graphiques
+# d'avoir de nombreux attributs
 
 from dateutil import tz
 import flet as ft
-import meteo.conditions as conditions
-import meteo.previsions as previsions
-import meteo.icones as icones
+from meteo import previsions, conditions, icones
 
 class VueConditionsActuelles(ft.Container):
     """Vue des conditions météorologiques actuelles."""
@@ -53,7 +54,7 @@ class VueConditionsActuelles(ft.Container):
                         controls = [
                             ft.Container(
                                 ft.Image(
-                                    src = icones.Icones['ICONE_' + self._ville.icone_actuelle].value,
+                                    src = icones.Icones['ICONE_' + self._ville.code_icone].value,
                                     height = 100,
                                     fit = ft.ImageFit.CONTAIN,
                                 ),

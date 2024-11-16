@@ -42,7 +42,7 @@ classDiagram
         + maj()
         + temp_actuelle()
         + condition_actuelle()
-        + icone_actuelle()
+        + code_icone()
         + humidite_actuelle()
         + pression_actuelle()
         + vent_actuel()

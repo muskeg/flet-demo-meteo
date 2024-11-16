@@ -53,7 +53,7 @@ Fonctions principales :
 - `maj()`: Met à jour les conditions actuelles.
 - `temp_actuelle()`: Retourne la température actuelle.
 - `condition_actuelle()`: Retourne la condition météorologique actuelle.
-- `icone_actuelle()`: Retourne l'icône correspondant à la condition actuelle.
+- `code_icone()`: Retourne l'icône correspondant à la condition actuelle.
 - `humidite_actuelle()`: Retourne l'humidité actuelle.
 - `pression_actuelle()`: Retourne la pression actuelle.
 - `vent_actuel()`: Retourne la vitesse du vent actuelle.

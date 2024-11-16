@@ -79,7 +79,7 @@ class Previsions:
                 previsions[date] = self._previsions_par_dates[date]
                 # yield date, self.__previsions_par_dates[date]
         return previsions
-    
+
     def prevision_un_jour(self, date):
         """Prévisions pour une journée précise"""
         prevision = self._previsions_par_dates[date]
