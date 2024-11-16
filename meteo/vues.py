@@ -5,8 +5,9 @@ sont utilisées pour afficher les conditions actuelles et les prévisions
 météorologiques.
 """
 # pylint: disable=import-error, too-many-instance-attributes
-# il est acceptable pour des classes d'interface graphiques
-# d'avoir de nombreux attributs
+# il est acceptable pour des classes d'interfaces graphiques
+# d'avoir de nombreux attributs. Ignore les erreurs d'import
+# de module local
 
 from dateutil import tz
 import flet as ft
