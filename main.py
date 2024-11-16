@@ -7,7 +7,7 @@ Canada pour une station météo donnée.
 
 import flet as ft
 from meteo.vues import VueConditionsActuelles, VuePrevisions
-class TemperatureVille(ft.Container):
+class MeteoVille(ft.Container):
     """Classe de présentation principale"""
     def __init__(self):
         super().__init__()
@@ -121,7 +121,7 @@ def main(page: ft.Page):
     page.window.resizable = False
     page.window.maximizable = False
     page.window.title_bar_hidden = True
-    interface = TemperatureVille()
+    interface = MeteoVille()
     page.add(
         ft.Row(
             [
